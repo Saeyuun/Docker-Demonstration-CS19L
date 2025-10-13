@@ -5,52 +5,79 @@ This is a simple Flask-based To-Do application that allows users to manage their
 ## Project Structure
 
 ```
+
+## Prerequisites
+
+- Git (to clone the repository)
+- Docker (if you want to run the app inside a container)
+- Python 3.8+ and pip (if you want to run locally without Docker)
+
+Files of interest:
+
+```
 flask-todo-app
 ├── app.py                # Main entry point of the Flask application
-├── static
-│   ├── css
-│   │   └── style.css     # CSS styles for the application
-│   └── js
-│       └── script.js     # JavaScript code for handling user interactions
-├── templates
-│   └── index.html        # HTML template for the application
-├── requirements.txt      # List of dependencies for the application
-└── README.md             # Documentation for the project
+├── Dockerfile            # Dockerfile to build a container image
+├── requirements.txt      # Python dependencies
+├── static/               # CSS and JS assets
+├── templates/            # HTML template(s)
+└── README.md             # This file
 ```
 
-## Requirements
+## Quick start — Run with Docker (recommended)
 
-To run this application, you need to have Python and pip installed. The required packages are listed in `requirements.txt`.
+These commands build and run the project inside Docker. They assume Docker is installed and the Docker daemon is running.
 
-## Installation
+Open PowerShell and run:
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd flask-todo-app
-   ```
+```powershell
+# Build the image (run from repository root where the Dockerfile is)
+docker build -t flask-todo-app .
 
-2. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
+# Run the container and map port 5000 on the host to port 5000 in the container
+docker run --rm -p 5000:5000 flask-todo-app
 
-## Running the Application
-
-To start the Flask application, run the following command:
-```
-python app.py
+# Visit http://localhost:5000/ in your browser
 ```
 
-The application will be accessible at `http://127.0.0.1:5000/`.
+Notes:
+- If your Dockerfile exposes a different port, change the `-p` mapping accordingly.
+- `--rm` removes the container when it stops. Remove the flag if you want to keep the container.
 
-## Usage
+Optional: build and run with a named container:
 
-- Add a new task by typing in the input field and clicking the "Add" button or pressing Enter.
-- Mark tasks as completed by clicking the checkbox next to each task.
-- Delete tasks using the "Delete" button next to each task.
-- Filter tasks by clicking on the filter buttons (All, Active, Completed).
+```powershell
+docker build -t flask-todo-app .
+docker run --name my-flask-todo -d -p 5000:5000 flask-todo-app
+docker logs -f my-flask-todo
+```
 
-## License
+## Screenshots
 
-This project is open-source and available under the MIT License.
+Include screenshots in the repository under a `screenshots/` folder so they display on GitHub. Create the folder at the repo root and add PNG/JPG files.
+
+Recommended names:
+- `screenshots/home.png` — main UI
+- `screenshots/add-task.png` — when adding a task
+- `screenshots/completed.png` — completed tasks view
+
+Embed screenshots in this README with standard Markdown. Example:
+
+```markdown
+![Home view](screenshots/home.png)
+![Add task](screenshots/add-task.png)
+```
+
+Small tips:
+- Keep images under ~1–2 MB to keep the repo manageable.
+- 1280×720 or 800×450 are good sizes for screenshots.
+
+## Short demo video
+
+Add a short demo video (30–90 seconds) to demonstrate the app in action. Host the video on a public service (YouTube, Vimeo) and add the link here.
+
+Example placeholder (replace with your own link):
+
+[Short demo video of Flask To-Do app](https://youtu.be/REPLACE_WITH_YOUR_VIDEO)
+
+You can also embed a YouTube video in GitHub README via a linked image / GIF, but GitHub does not allow direct video embeds — linking is the simplest approach.
