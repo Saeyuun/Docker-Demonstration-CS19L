@@ -32,7 +32,7 @@ Then we run:
 sudo docker run -d -p 5000:5000 todolist-app
 ```
 
-To check if our container is running we run:
+To check if our container is running:
 
 ```bash
 docker ps
