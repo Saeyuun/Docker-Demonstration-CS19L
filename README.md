@@ -23,7 +23,7 @@ or
 ```bash
 sudo docker build -t todolist-app .
 ```
-[sudo docker build](screenshots/build.png)
+<img src="screenshots/build.png" width="600" />
 Then we run:
 ```bash
 sudo docker run -d -p 5000:5000 todolist-app
