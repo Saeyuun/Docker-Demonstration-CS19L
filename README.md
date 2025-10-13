@@ -23,7 +23,7 @@ or
 ```bash
 sudo docker build -t todolist-app .
 ```
-<img src="screenshots/build.png" width="600" />
+<img src="screenshots/build.png" width="800" />
 Then we run:
 ```bash
 sudo docker run -d -p 5000:5000 todolist-app
@@ -33,9 +33,14 @@ To check if our container is running we run:
 ```bash
 docker ps
 ```
+<img src="screenshots/run.png" width="800" />
 
 ## Running the application
 Simply visit the link:
 http://localhost:5000
 
+### Sample screenshots 
 
+<img src="screenshots/home.png" width="800" />
+<img src="screenshots/addtask.png" width="800" />
+<img src="screenshots/completetask.png" width="800" />
