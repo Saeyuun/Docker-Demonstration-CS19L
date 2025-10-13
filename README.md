@@ -24,12 +24,16 @@ or
 sudo docker build -t todolist-app .
 ```
 <img src="screenshots/build.png" width="800" />
+
+
 Then we run:
+
 ```bash
 sudo docker run -d -p 5000:5000 todolist-app
 ```
 
 To check if our container is running we run:
+
 ```bash
 docker ps
 ```
